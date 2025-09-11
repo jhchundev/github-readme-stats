@@ -328,6 +328,7 @@ Here is a list of all available locales:
 | `uz` | Uzbek |
 | `vi` | Vietnamese |
 | `se` | Swedish |
+| `az` | Azerbaijani |
 
 </td></tr>
 </table>
@@ -635,7 +636,7 @@ You can customize the appearance and behavior of the WakaTime stats card using t
 
 ![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=anuraghazra\&hide=issues\&show_icons=true)
 
-*   Shows Github logo instead rank level
+*   Shows GitHub logo instead rank level
 
 ![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=anuraghazra\&rank_icon=github)
 
@@ -798,7 +799,7 @@ Since the GitHub API only allows 5k requests per hour, my `https://github-readme
 
 ## Disable rate limit protections
 
-Github Readme Stats contains several Vercel environment variables that can be used to remove the rate limit protections:
+GitHub Readme Stats contains several Vercel environment variables that can be used to remove the rate limit protections:
 
 *   `CACHE_SECONDS`: This environment variable takes precedence over our cache minimum and maximum values and can circumvent these values for self-hosted Vercel instances.
 
@@ -817,7 +818,7 @@ However, if you are using this project and are happy with it or just want to enc
 
 *   Giving proper credit when you use github-readme-stats on your readme, linking back to it. :D
 *   Starring and sharing the project. :rocket:
-*   [![paypal.me/anuraghazra](https://ionicabizau.github.io/badges/paypal.svg)](https://www.paypal.me/anuraghazra) - You can make a one-time donations via PayPal. I'll probably buy a ~~coffee~~ tea. :tea:
+*   [![paypal.me/anuraghazra](https://ionicabizau.github.io/badges/paypal.svg)](https://www.paypal.me/anuraghazra) - You can make a one-time donation via PayPal. I'll probably buy a ~~coffee~~ tea. :tea:
 
 Thanks! :heart:
 
