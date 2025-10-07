@@ -99,7 +99,7 @@
 # Important Notices <!-- omit in toc -->
 
 > [!IMPORTANT]\
-> Please note that we are NOT participating in Hacktoberfest this year. Unfortunately, the only person with sufficient access rights to remove the repository label is currently unreachable, so we are notifying you here. As a small team, we cannot handle the increased volume of PRs and issues that the event brings. We appreciate your understanding.
+> Please note that we are NOT participating in Hacktoberfest this year. As a small team, we cannot handle the increased volume of PRs and issues that the event brings. We appreciate your understanding.
 
 > [!IMPORTANT]\
 > Since the GitHub API only [allows 5k requests per hour per user account](https://docs.github.com/en/graphql/overview/resource-limitations), the public Vercel instance hosted on `https://github-readme-stats.vercel.app/api` could possibly hit the rate limiter (see [#1471](https://github.com/anuraghazra/github-readme-stats/issues/1471)). We use caching to prevent this from happening (see https://github.com/anuraghazra/github-readme-stats#common-options). You can turn off these rate limit protections by [deploying your own Vercel instance](#deploy-on-your-own).
@@ -320,12 +320,12 @@ Here is a list of all available locales:
 | `fi` | Finnish |
 | `fr` | French |
 | `de` | German |
+| `el` | Greek |
 
 </td><td>
 
 | Code | Locale |
 | --- | --- |
-| `el` | Greek |
 | `he` | Hebrew |
 | `hi` | Hindi |
 | `hu` | Hungarian |
@@ -339,19 +339,22 @@ Here is a list of all available locales:
 | `fa` | Persian (Farsi) |
 | `pl` | Polish |
 | `pt-br` | Portuguese (Brazil) |
+| `pt-pt` | Portuguese (Portugal) |
+| `ro` | Romanian |
 
 </td><td>
 
 | Code | Locale |
 | --- | --- |
-| `pt-pt` | Portuguese (Portugal) |
-| `ro` | Romanian |
 | `ru` | Russian |
+| `sa` | Sanskrit |
 | `sr` | Serbian (Cyrillic) |
 | `sr-latn` | Serbian (Latin) |
 | `sk` | Slovak |
 | `es` | Spanish |
+| `sw` | Swahili |
 | `se` | Swedish |
+| `ta` | Tamil |
 | `th` | Thai |
 | `tr` | Turkish |
 | `uk-ua` | Ukrainian |
@@ -645,6 +648,7 @@ You can customize the appearance and behavior of the WakaTime stats card using t
 | --- | --- | --- | --- |
 | `hide` | Hides the languages specified from the card. | string (comma-separated values) | `null` |
 | `hide_title` | Hides the title of your card. | boolean | `false` |
+| `card_width` | Sets the card's width manually. | number | `495` |
 | `line_height` | Sets the line height between text. | integer | `25` |
 | `hide_progress` | Hides the progress bar and percentage. | boolean | `false` |
 | `custom_title` | Sets a custom title for the card. | string | `WakaTime Stats` |
@@ -869,7 +873,7 @@ Since the GitHub API only allows 5k requests per hour, my `https://github-readme
 <summary><b>:hammer_and_wrench: Step-by-step guide for deploying on other platforms</b></summary>
 
 1.  Fork or clone this repo as per your needs
-2.  Add `express` to the dependencies section of `package.json`
+2.  Move `express` from the devDependencies to the dependencies section of `package.json`
     <https://github.com/anuraghazra/github-readme-stats/blob/ba7c2f8b55eac8452e479c8bd38b044d204d0424/package.json#L54-L61>
 3.  Run `npm i` if needed (initial setup)
 4.  Run `node express.js` to start the server, or set the entry point to `express.js` in `package.json` if you're deploying on a managed service
@@ -884,6 +888,8 @@ GitHub Readme Stats provides several environment variables that can be used to c
 *   `CACHE_SECONDS`: This takes precedence over our cache minimum and maximum values and can circumvent these values for self-hosted instances.
 *   `WHITELIST`: A comma-separated list of GitHub usernames that are allowed to access your instance. If this variable is not set, all usernames are allowed.
 *   `GIST_WHITELIST`: A comma-separated list of GitHub gist IDs that are allowed to be accessed on your instance. If this variable is not set, all gist IDs are allowed.
+*   `EXCLUDE_REPO`: A comma-separated list of repositories that will be excluded from stats and top languages cards on your instance. This allows repository exclusion without exposing repository names in public URLs. This enhances privacy for self-hosted instances that include private repositories in stats cards.
+*   `FETCH_MULTI_PAGE_STARS`: When set to `true`, this enables fetching all starred repositories for accurate star counts, especially for users with more than 100 repositories. This may increase response times and API points usage, so it is disabled on the public instance.
 
 See [the Vercel documentation](https://vercel.com/docs/concepts/projects/environment-variables) on adding these environment variables to your Vercel instance.
 
